@@ -31,9 +31,9 @@ int main() {
 void quicksort(int a[], int lower, int upper) {
     int i;
     if(upper > lower) {
-        i = split(A, lower, upper);
+        i = split(a, lower, upper);
         quicksort(a, lower, i - 1);
-        quicksort(A, i + 1, upper);
+        quicksort(a, i + 1, upper);
     }
 }
 
@@ -41,7 +41,7 @@ int split (int a[], int lower, int upper) {
     int i, p, q, t;
     p = lower + 1;
     q = upper;
-    i = a(lower);
+    i = a[lower];
 
     while (q >= p) {
         while (a[p] < i) {
@@ -55,7 +55,7 @@ int split (int a[], int lower, int upper) {
         if(q > p) {
             t = a[p];
             a[p] = a[q];
-            a[q] = t
+            a[q] = t;
         }
     }
 
