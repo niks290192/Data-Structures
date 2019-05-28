@@ -25,5 +25,36 @@ int main() {
         printf("%d\t", arr[i]);
     }
 
-    
+    for(i=0; i<=9; i++){
+        insert(&bt, arr[i]);
+    }
+
+    printf("\n");
+    printf("In-Order traversal of binary tree:\n");
+    inorder(bt);
+
+    return 0;
+}
+
+void insert(struct btreenode **sr, int num) {
+    if (*sr == NULL){
+        *sr == (struct btreenode *) malloc (sizeof ( struct btreenode));
+        ( *sr) -> leftChild = NULL;
+        (* sr) -> data = num;
+        (*sr) -> rightChild = NULL;
+    } else {
+        if (num < (*sr) -> data){
+            insert(& ((*sr) -> leftChild), num);
+        } else {
+            insert(&(( *sr) -> rightChild), num);
+        }
+    }
+}
+
+void inorder(struct btreenode *sr){
+    if (sr != NULL) {
+        inorder(sr -> leftChild);
+        printf("%d\t", sr -> data);
+        inorder(sr -> rightChild);
+    }
 }
